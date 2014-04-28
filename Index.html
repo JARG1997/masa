@@ -1,0 +1,86 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>IMC</title>
+<link href="jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="jquery.mobile-1.0.min.js" type="text/javascript"></script>
+<script>
+var peso;
+var estatura;
+var imc;
+
+function calcular(){
+ peso=document.getElementById("txtPeso").value;
+ peso=parseFloat(peso);
+ estatura=document.getElementById("txtEstatura").value;
+ estatura=parseFloat(estatura);  
+ imc=peso/(estatura*estatura);
+ if (imc<18) {
+    document.getElementById("txtResul").value=imc;
+  alert("Peso bajo.valorar signos de desnutricion.");
+  document.getElementById("txtResul").value="";
+ }
+
+ else if ((imc>18)&&(imc<24.9)) {
+     document.getElementById("txtResul").value=imc;
+  alert("Normal");
+  document.getElementById("txtResul").value="";
+}
+
+else if ((imc>25)&&(imc<26.9)) {
+     document.getElementById("txtResul").value=imc;
+  alert("Sobrepeso");
+  document.getElementById("txtResul").value="";
+
+  }
+  else if ((imc>27)&&(imc<29.9)) {
+     document.getElementById("txtResul").value=imc;
+  alert("Obesidad grado 1. Riesgo relativo alto para desarrollar enfermedades cardiovasculares");
+document.getElementById("txtResul").value="";
+  }
+  else if ((imc>30)&&(imc<39.9)) {
+     document.getElementById("txtResul").value=imc;
+  alert("obesidad grado 2. Riesgo relativo muy alto para el desarrollo de enfermedades cardiovasculares");
+document.getElementById("txtResul").value="";
+  }
+  
+  else if (imc>40){
+     document.getElementById("txtResul").value=imc;
+    alert("Obesidad Grado 3 Extrema o Morbida. Riesgo relativo Extremadamente alto para el dearrollo de enfermedades cardiovasculares");
+document.getElementById("txtResul").value="";
+  }
+
+}
+</script>
+</head> 
+<body>
+<div data-role="page" id="page">
+	<div data-role="header">
+		<h1>**IMC**</h1>
+	</div>
+	<table width="0" border="0">
+  <tr>
+    <td><label for="textinput">Dame el Peso (Kg):</label></td>
+    <td><input type="text" name="txtPeso" id="txtPeso" value=""  /></td>
+  </tr>
+  <tr>
+    <td><label for="textinput">Dame la Estatura en (Mts):</label></td>
+    <td><input type="text" name="txtEstatura" id="txtEstatura" value=""  /></td>
+  </tr>
+  <tr>
+    <td><input type="button" value="Calcular IMC"
+    onClick="calcular()"/></td>
+    <td><input type="text"  id="txtResul" disabled="disabled" /></td>
+  </tr>
+</table>
+  
+<img src="../menu/lamborghini aventador HD tron.jpg" width="600" height="300" alt="lambor"> 
+	<div data-role="footer">
+		<h4>Autor:Rivera Garcia Jose Angel</h4>
+	</div>
+</div>
+
+</body>
+</html>
